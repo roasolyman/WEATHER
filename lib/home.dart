@@ -37,12 +37,12 @@ class _CuurrentWeatherState extends State<CuurrentWeather> {
   Widget build(BuildContext context) {
     return GestureDetector(
       child: GlowContainer(
-        height: MediaQuery.of(context).size.height - 230, //يلي لونو ازرق
+        height: MediaQuery.of(context).size.height - 180, //يلي لونو ازرق
         margin: EdgeInsets.all(2),
         padding: EdgeInsets.only(top: 60, left: 30, right: 30),
         glowColor: Color(0xff00A1FF), //الحدود
         borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(60), bottomRight: Radius.circular(60)),
+            bottomLeft: Radius.circular(30), bottomRight: Radius.circular(30)),
         color: Color(0xff00A1FF),
         spreadRadius: 5,
         child: Column(
@@ -68,12 +68,14 @@ class _CuurrentWeatherState extends State<CuurrentWeather> {
                               backgroundColor: Color(0XFF030317),
                               title: Text("city not found "),
                               content: Text("please check the city name"),
+
                               actions: [
-                                TextButton(
-                                    onPressed: () {
-                                      Navigator.of(context).pop();
+                                          TextButton(
+                                             onPressed: () {
+                                             Navigator.of(context).pop();
                                     },
-                                    child: Text("ok"))
+                                           child: Text("ok"))
+   
                               ],
                             );
                           });
@@ -81,9 +83,9 @@ class _CuurrentWeatherState extends State<CuurrentWeather> {
                   },
                 )
                     : Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Icon(
+                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                         children: [
+                        Icon(
                       CupertinoIcons.square_grid_2x2,
                       color: Colors.white,
                     ),
@@ -115,18 +117,18 @@ class _CuurrentWeatherState extends State<CuurrentWeather> {
                   ],
                 )),
             Container(
-              margin: EdgeInsets.only(top: 10),
-              padding: EdgeInsets.all(10),
+              margin: EdgeInsets.only(top: 2),
+              padding: EdgeInsets.all(2),
               decoration: BoxDecoration(
-                  border: Border.all(width: 0.2, color: Colors.white),
+                  border: Border.all(width: 1, color: Colors.white),
                   borderRadius: BorderRadius.circular(30)),
               child: Text(
                 "updated",
                 style: TextStyle(fontWeight: FontWeight.bold),
-              ),
+              ),/* هان لتحديث */
             ),
             Container(
-              height: 220,
+              height: 200,
               child: Stack(
                 children: [
                   Image(
@@ -144,8 +146,8 @@ class _CuurrentWeatherState extends State<CuurrentWeather> {
                           GlowText(
                             "18",
                             style: TextStyle(
-                                height: 0.1,
-                                fontSize: 30,
+                                height: 1,
+                                fontSize: 20,
                                 fontWeight: FontWeight.bold
                             ),
                           ),
@@ -173,7 +175,7 @@ class _CuurrentWeatherState extends State<CuurrentWeather> {
             Divider(
               color: Colors.white,
             ),
-            SizedBox(height: 10,),
+            SizedBox(height: 15,),
 
 
             ExtraWeather()
@@ -192,7 +194,7 @@ class TodayWeather extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 30,right: 30,top: 10),
+      padding: const EdgeInsets.only(left: 40,right: 40,top: 30),
       child: Column(
         children: [
           Row(
@@ -200,7 +202,7 @@ class TodayWeather extends StatelessWidget {
             children: [
               Text(
                 "Today",
-                style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold),
               ),
               GestureDetector(
                 onTap: (){
@@ -229,7 +231,10 @@ class TodayWeather extends StatelessWidget {
             height: 15,
           ),
           Container(
-            margin: EdgeInsets.only(bottom: 30),
+            margin: const EdgeInsets.only(bottom:1.0
+
+
+            ),//في مشكله
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -259,12 +264,12 @@ class weatherWidge extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Text("17"+"\u0B00",
+          Text("17"+"°",
             style: TextStyle(fontSize: 20),
           ),
-          SizedBox(height: 5,),
-          Image(image: AssetImage("assets/sunny.png'"),width: 50,height:50 ,),
-          SizedBox(height: 5,),
+          SizedBox(height: 10,),
+          Image(image: AssetImage("assets/sunny.png"),width: 50,height:50 ,),
+          SizedBox(height:5,),
           Text(
             "12.00",
             style: TextStyle(fontSize: 16,color: Colors.grey),
